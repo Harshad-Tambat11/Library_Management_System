@@ -1,0 +1,27 @@
+{
+  "name": "library_management_system",
+  "version": "1.0.0",
+  "description": "this is library management API Backend for the management of user and the books",
+  "homepage": "https://github.com/Harshad-Tambat11/Library_Management_System#readme",
+  "bugs": {
+    "url": "https://github.com/Harshad-Tambat11/Library_Management_System/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshad-Tambat11/Library_Management_System.git"
+  },
+  "license": "ISC",
+  "author": "harshad tambat",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
