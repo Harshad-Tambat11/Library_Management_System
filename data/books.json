@@ -1,94 +1,60 @@
 {
     "books": [
   {
-    "id": 1,
+    "id": "1",
     "title": "The Silent Patient",
     "author": "Alex Michaelides",
     "genre": "Psychological Thriller",
-    "year": 2019,
-    "pages": 336,
-    "rating": 4.5
+    "price": "15.99",
+    "publisher": "Celadon Books"
   },
   {
-    "id": 2,
+    "id": "2",
     "title": "Atomic Habits",
     "author": "James Clear",
     "genre": "Self-Help",
-    "year": 2018,
-    "pages": 320,
-    "rating": 4.8
+    "price": "11.99",
+    "publisher": "Avery"
   },
   {
-    "id": 3,
+    "id": "3",
     "title": "The Alchemist",
     "author": "Paulo Coelho",
     "genre": "Fiction",
-    "year": 1988,
-    "pages": 208,
-    "rating": 4.7
+    "price": "9.99",
+    "publisher": "HarperOne"
   },
   {
-    "id": 4,
+    "id": "4" ,
     "title": "1984",
     "author": "George Orwell",
     "genre": "Dystopian",
-    "year": 1949,
-    "pages": 328,
-    "rating": 4.6
+    "price": "12.99",
+    "publisher": "Secker & Warburg"
   },
   {
-    "id": 5,
+    "id": "5",
     "title": "The Hobbit",
     "author": "J.R.R. Tolkien",
     "genre": "Fantasy",
-    "year": 1937,
-    "pages": 310,
-    "rating": 4.8
+    "price": "14.99",
+    "publisher": "George Allen & Unwin"
   },
   {
-    "id": 6,
+    "id": "6",
     "title": "Rich Dad Poor Dad",
     "author": "Robert T. Kiyosaki",
     "genre": "Personal Finance",
-    "year": 1997,
-    "pages": 336,
-    "rating": 4.5
+    "price": "13.99",
+    "publisher": "Plata Publishing"
   },
   {
-    "id": 7,
+    "id": "7",
     "title": "The Psychology of Money",
     "author": "Morgan Housel",
     "genre": "Finance",
-    "year": 2020,
-    "pages": 256,
-    "rating": 4.7
-  },
-  {
-    "id": 8,
-    "title": "Harry Potter and the Philosopher's Stone",
-    "author": "J.K. Rowling",
-    "genre": "Fantasy",
-    "year": 1997,
-    "pages": 309,
-    "rating": 4.9
-  },
-  {
-    "id": 9,
-    "title": "To Kill a Mockingbird",
-    "author": "Harper Lee",
-    "genre": "Classic Fiction",
-    "year": 1960,
-    "pages": 281,
-    "rating": 4.8
-  },
-  {
-    "id": 10,
-    "title": "Deep Work",
-    "author": "Cal Newport",
-    "genre": "Productivity",
-    "year": 2016,
-    "pages": 304,
-    "rating": 4.6
+    "price": "16.99",
+    "publisher": "Harriman House"
   }
 ]
 }
