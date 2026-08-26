@@ -1,84 +1,65 @@
 {
     "users": [
   {
-    "id": 1,
+    "id": "1",
     "name": "Aarav Sharma",
-    "age": 24,
+    "age":" 24",
     "email": "aarav.sharma@example.com",
     "city": "Pune",
-    "country": "India"
+    "country": "India",
+    "issuedBook": "2",
+    "issuedDate": "2023-09-01",
+    "returnDate": "2023-09-15",
+    "subscriptionType": "Premium",
+    "subscriptionDate": "2023-09-01"
+     
   },
   {
-    "id": 2,
+    "id":"2",
     "name": "Emma Wilson",
-    "age": 29,
+    "age": "29",
     "email": "emma.wilson@example.com",
     "city": "London",
-    "country": "United Kingdom"
+    "country": "United Kingdom",
+    "issuedBook": "5",
+    "issuedDate": "2023-09-05", 
+    "returnDate": "2023-09-20",
+    "subscriptionType": "Standard",
+    "subscriptionDate": "2023-09-05"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Liam Brown",
-    "age": 31,
+    "age": "31",
     "email": "liam.brown@example.com",
     "city": "Toronto",
-    "country": "Canada"
+    "country": "Canada",
+    "issuedBook": "1",
+    "issuedDate": "2023-09-10", 
+    "returnDate": "2023-09-25",
+    "subscriptionType": "Premium",
+    "subscriptionDate": "2023-09-10"
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Sophia Patel",
-    "age": 22,
+    "age": "22",
     "email": "sophia.patel@example.com",
     "city": "Mumbai",
-    "country": "India"
+    "country": "India",
+    "issuedBook": "3",
+    "issuedDate": "2023-09-12",
+    "returnDate": "2023-09-27",
+    "subscriptionType": "Standard",
+    "subscriptionDate": "2023-09-12"
   },
   {
-    "id": 5,
+    "id": "5",
     "name": "Noah Miller",
-    "age": 27,
+    "age": "27",
     "email": "noah.miller@example.com",
     "city": "New York",
     "country": "USA"
-  },
-  {
-    "id": 6,
-    "name": "Olivia Garcia",
-    "age": 26,
-    "email": "olivia.garcia@example.com",
-    "city": "Madrid",
-    "country": "Spain"
-  },
-  {
-    "id": 7,
-    "name": "Kabir Mehta",
-    "age": 23,
-    "email": "kabir.mehta@example.com",
-    "city": "Bengaluru",
-    "country": "India"
-  },
-  {
-    "id": 8,
-    "name": "Lucas Martin",
-    "age": 34,
-    "email": "lucas.martin@example.com",
-    "city": "Paris",
-    "country": "France"
-  },
-  {
-    "id": 9,
-    "name": "Mia Anderson",
-    "age": 28,
-    "email": "mia.anderson@example.com",
-    "city": "Sydney",
-    "country": "Australia"
-  },
-  {
-    "id": 10,
-    "name": "Rohan Joshi",
-    "age": 25,
-    "email": "rohan.joshi@example.com",
-    "city": "Delhi",
-    "country": "India"
   }
 ]
 }
