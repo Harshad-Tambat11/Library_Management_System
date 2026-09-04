@@ -59,3 +59,20 @@ npm i nodemon --save-dev
 npm run dev
 
 to restore the node_modyle and package-lock.json --> npm i/npm install 
+
+npm i mongoose
+npm i mongodb
+
+mongodb+srv://tambatharshad11_db_user:<db_password>@cluster0.apqmway.mongodb.net/?appName=Cluster0
+
+mongodb+srv://tambatharshad11_db_user:Guf5ZcfT1kJGxYYC@cluster0.apqmway.mongodb.net/?appName=Cluster0
+
+
+npm i dotenv
+
+## MVC Architecture
+  >> M: model (structure of mongoDB)
+  >> V: view (Frontend)
+  >> C: controller (Brain/Logic of a route)
+
+### DTO (Data Transfer Object)

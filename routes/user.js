@@ -1,6 +1,7 @@
 const express = require('express')
 
-const {users} = require('../data/users.json')
+const {users} = require('../data/users.json');
+const { getAllUsers, getSingleUserById, addNewUser, updateUserById, deleteUserById, getSubscriptionDetails } = require('../controllers/user_controller');
 
 const routes = express.Router();
 
@@ -14,12 +15,14 @@ const routes = express.Router();
 *parameters: none
 */
 
-routes.get('/', (req, res) => {
-    res.status(200).json({
-        success: true,
-        data: users
-    });
-})
+// routes.get('/', (req, res) => {
+//     res.status(200).json({
+//         success: true,
+//         data: users
+//     });
+// })
+
+routes.get('/', getAllUsers)
 
 
 // route: //:id
@@ -28,25 +31,27 @@ routes.get('/', (req, res) => {
 // access: public
 // parameters: id
 
-routes.get('/:id', (req, res)=> {
-    const {id} = req.params;
-    const user = users.find((each)=> each.id === id);
+// routes.get('/:id', (req, res)=> {
+//     const {id} = req.params;
+//     const user = users.find((each)=> each.id === id);
 
-    //if user not found then send error response
-    if(!user){
-       return res.status(404).json({
-            success: false,
-            message: `user not found ${id}`
-        })
+//     //if user not found then send error response
+//     if(!user){
+//        return res.status(404).json({
+//             success: false,
+//             message: `user not found ${id}`
+//         })
 
-    }
+//     }
 
-    //if user found then send success response
-    res.status(200).json({
-        success: true,
-        data: user
-    })
-})
+//     //if user found then send success response
+//     res.status(200).json({
+//         success: true,
+//         data: user
+//     })
+// })
+
+routes.get('/:id', getSingleUserById )
 
 /** 
 *route: /
@@ -55,44 +60,46 @@ routes.get('/:id', (req, res)=> {
 *access: public
 *parameters: none
 */
-routes.post('/', (req, res) =>{
+// routes.post('/', (req, res) =>{
    
-    //request required data from body
-   const {id, name, age, email, city, country} = req.body;
+//     //request required data from body
+//    const {id, name, age, email, city, country} = req.body;
 
-   //check if all the required data is present or not
-   if(!id || !name || !age || !email || !city || !country){
+//    //check if all the required data is present or not
+//    if(!id || !name || !age || !email || !city || !country){
 
-    return res.status(400).json({
-        success: false,
-        message: "please insert required information"
-     });
-   }
+//     return res.status(400).json({
+//         success: false,
+//         message: "please insert required information"
+//      });
+//    }
 
-   //check if user already exists or not
-   const user =  users.find((each)=> each.id === id)
+//    //check if user already exists or not
+//    const user =  users.find((each)=> each.id === id)
 
-   //if user already exists then send error response
-   if(user){
+//    //if user already exists then send error response
+//    if(user){
 
-    return res.status(409).json({
-        success: false,
-        message: `user already exists with ${id}`
-    });
-}
-
-
-//if user does not exists then add user to the users array
-  users.push({id, name, age, email, city, country})
+//     return res.status(409).json({
+//         success: false,
+//         message: `user already exists with ${id}`
+//     });
+// }
 
 
-//send success response
-  res.status(200).json({
-    success: true,
-    message: `user added successfully ${id}`,
-    data: users
-  });
-})
+// //if user does not exists then add user to the users array
+//   users.push({id, name, age, email, city, country})
+
+
+// //send success response
+//   res.status(200).json({
+//     success: true,
+//     message: `user added successfully ${id}`,
+//     data: users
+//   });
+// })
+
+routes.post('/', addNewUser)
 
 
 /** 
@@ -102,38 +109,40 @@ routes.post('/', (req, res) =>{
 *access: public
 *parameters: id
 */
-routes.put('/:id', (req, res)=> {
-    const {id} = req.params;
-    const data = req.body;
+// routes.put('/:id', (req, res)=> {
+//     const {id} = req.params;
+//     const data = req.body;
 
-    const user = users.find((each)=> each.id === id);
+//     const user = users.find((each)=> each.id === id);
 
-    if(!user){
-        return res.status(404).json({
-            success: false,
-            message: `user not found ${id}`
-        })
-    }
+//     if(!user){
+//         return res.status(404).json({
+//             success: false,
+//             message: `user not found ${id}`
+//         })
+//     }
 
 
-//update user with spread operator
-    const updateUser = users.map((each)=> {
-        if(each.id === id){
-            return{
-                ...each,
-                ...data,
-            }
-        }
-        return each;
-    })
+// //update user with spread operator
+//     const updateUser = users.map((each)=> {
+//         if(each.id === id){
+//             return{
+//                 ...each,
+//                 ...data,
+//             }
+//         }
+//         return each;
+//     })
 
-    //send success response
-    res.status(200).json({
-        success: true,
-        message: `user updated successfully ${id}`,
-        data: updateUser
-    })
-})
+//     //send success response
+//     res.status(200).json({
+//         success: true,
+//         message: `user updated successfully ${id}`,
+//         data: updateUser
+//     })
+// })
+
+routes.put('/:id', updateUserById)
 
 /** 
 *route: /:id
@@ -142,28 +151,31 @@ routes.put('/:id', (req, res)=> {
 *access: public
 *parameters: id
 */
-routes.delete('/:id', (req, res)=> {
-    const {id} = req.params;
+// routes.delete('/:id', (req, res)=> {
+//     const {id} = req.params;
 
-    const user = users.find((each)=> each.id === id);
+//     const user = users.find((each)=> each.id === id);
 
-    if(!user){
-        return res.status(404).json({
-            success: false,
-            message: `user not found ${id}`
-        })
-    }
+//     if(!user){
+//         return res.status(404).json({
+//             success: false,
+//             message: `user not found ${id}`
+//         })
+//     }
 
-    //remove user from the users array
-    const updatedUsers = users.filter((each)=> each.id !== id);
+//     //remove user from the users array
+//     const updatedUsers = users.filter((each)=> each.id !== id);
 
-    //send success response
-    res.status(200).json({
-        success: true,
-        message: `user deleted successfully ${id}`,
-        data: updatedUsers
-    })
-})
+//     //send success response
+//     res.status(200).json({
+//         success: true,
+//         message: `user deleted successfully ${id}`,
+//         data: updatedUsers
+//     })
+// })
+
+routes.delete('/:id', deleteUserById)
+
 
 /**
  * route: /subscription-details/:id
@@ -172,66 +184,68 @@ routes.delete('/:id', (req, res)=> {
  * access: public
  * parameters: id
  */
-routes.get('/subscription-details/:id', (req, res) => {
-    const { id } = req.params;
+// routes.get('/subscription-details/:id', (req, res) => {
+//     const { id } = req.params;
 
-    const user = users.find((each) => each.id === id);
+//     const user = users.find((each) => each.id === id);
 
-    if (!user) {
-        return res.status(404).json({
-            success: false,
-            message: `user not found ${id}`
-        });
-    }
+//     if (!user) {
+//         return res.status(404).json({
+//             success: false,
+//             message: `user not found ${id}`
+//         });
+//     }
 
-    //extract subscription deteils from user object
-    const getDateInDays = (data = "") => {
-        let date;
-        if(data){
-            date=new Date(data);
-        }else{
-            date=new Date();
-        }
-       let days= Math.floor(date.getTime()/(1000*60*60*24));
-       return days;
-    }
+//     //extract subscription deteils from user object
+//     const getDateInDays = (data = "") => {
+//         let date;
+//         if(data){
+//             date=new Date(data);
+//         }else{
+//             date=new Date();
+//         }
+//        let days= Math.floor(date.getTime()/(1000*60*60*24));
+//        return days;
+//     }
 
-    const subscriptionType = (date) => {
-        if(user.subscriptionType === "Basic"){
-            date= date + 90;
-        }else if(user.subscriptionType === "Standard"){
-            date= date + 180;
-        }else if(user.subscriptionType === "Premium"){
-            date= date + 365;
-        }
-        return date;
-    }
+//     const subscriptionType = (date) => {
+//         if(user.subscriptionType === "Basic"){
+//             date= date + 90;
+//         }else if(user.subscriptionType === "Standard"){
+//             date= date + 180;
+//         }else if(user.subscriptionType === "Premium"){
+//             date= date + 365;
+//         }
+//         return date;
+//     }
 
-    //subscriotion expiration date
-    //date jan 1, 1970 UTC
-    const returnDate = getDateInDays(user.returnDate);
-    const currentDate = getDateInDays();
-    const subscriptionDate = getDateInDays(user.subscriptionDate);
-    const subscriptionExpiration = subscriptionType(subscriptionDate);
+//     //subscriotion expiration date
+//     //date jan 1, 1970 UTC
+//     const returnDate = getDateInDays(user.returnDate);
+//     const currentDate = getDateInDays();
+//     const subscriptionDate = getDateInDays(user.subscriptionDate);
+//     const subscriptionExpiration = subscriptionType(subscriptionDate);
 
-    const data = {
-        ...user,
-        subscriptionExpired: subscriptionExpiration < currentDate,
-        subscriptionDaysLeft: subscriptionExpiration-currentDate,
-        daysLeftFOrExpiration: returnDate-currentDate,
-        returnDate: returnDate < currentDate ? "book is overDue" :returnDate,
-        fine: returnDate < currentDate ? subscriptionExpiration <= currentDate ? 200 : 100 : 0
+//     const data = {
+//         ...user,
+//         subscriptionExpired: subscriptionExpiration < currentDate,
+//         subscriptionDaysLeft: subscriptionExpiration-currentDate,
+//         daysLeftFOrExpiration: returnDate-currentDate,
+//         returnDate: returnDate < currentDate ? "book is overDue" :returnDate,
+//         fine: returnDate < currentDate ? subscriptionExpiration <= currentDate ? 200 : 100 : 0
     
-    }
+//     }
 
 
 
-    res.status(200).json({
-        success: true,
-        message: "subscription details found",
-        data: data
-    })
-})
+//     res.status(200).json({
+//         success: true,
+//         message: "subscription details found",
+//         data: data
+//     })
+// })
+
+routes.get('/subscription-details/:id', getSubscriptionDetails)
 
 
 module.exports = routes;
